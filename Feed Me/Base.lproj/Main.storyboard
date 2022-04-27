@@ -16,19 +16,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIu-Eb-9pD" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_me" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-KE-lC0">
                                 <rect key="frame" x="172.5" y="300.5" width="30" height="55"/>
                             </imageView>
+                            <label userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slW-oj-00T">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Sk9-aH-ouV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r7q-Zb-cJ5"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="bottom" secondItem="slW-oj-00T" secondAttribute="bottom" id="0lT-yx-RYO"/>
                             <constraint firstItem="r7q-Zb-cJ5" firstAttribute="centerY" secondItem="Zk1-KE-lC0" secondAttribute="bottom" id="2Re-av-h44"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="trailing" secondItem="nIu-Eb-9pD" secondAttribute="trailing" id="EeW-cl-BlS"/>
+                            <constraint firstItem="slW-oj-00T" firstAttribute="trailing" secondItem="r7q-Zb-cJ5" secondAttribute="trailing" id="Ijo-sc-CAm"/>
+                            <constraint firstItem="nIu-Eb-9pD" firstAttribute="leading" secondItem="r7q-Zb-cJ5" secondAttribute="leading" id="RkF-SI-IjV"/>
                             <constraint firstItem="r7q-Zb-cJ5" firstAttribute="centerX" secondItem="Zk1-KE-lC0" secondAttribute="centerX" id="eEV-hM-eKB"/>
+                            <constraint firstItem="nIu-Eb-9pD" firstAttribute="top" secondItem="r7q-Zb-cJ5" secondAttribute="top" id="iBb-4a-Tzt"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="bottom" secondItem="nIu-Eb-9pD" secondAttribute="bottom" id="oa5-wE-ork"/>
+                            <constraint firstItem="slW-oj-00T" firstAttribute="leading" secondItem="r7q-Zb-cJ5" secondAttribute="leading" id="tRd-LW-Tyh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Hq-pz-3QM">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="bDj-dR-nCh">
+                            <connections>
+                                <action selector="refreshPlaces:" destination="vXZ-lx-hvc" id="W61-l0-kwY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="filter" id="Y8r-sI-zD8">
                             <connections>
                                 <segue destination="gRK-9k-5jK" kind="presentation" identifier="Types Segue" id="Glz-Sc-CwV"/>
@@ -36,7 +62,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressLabel" destination="slW-oj-00T" id="dxE-pO-Zu7"/>
                         <outlet property="mapCenterPinImage" destination="Zk1-KE-lC0" id="Dfo-xZ-1yc"/>
+                        <outlet property="mapView" destination="nIu-Eb-9pD" id="fps-tM-ary"/>
                         <outlet property="pinImageVerticalConstraint" destination="2Re-av-h44" id="KIp-HD-OAI"/>
                     </connections>
                 </viewController>
@@ -126,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="filter" width="25" height="25"/>
         <image name="icon_me" width="30" height="55"/>
         <systemColor name="darkTextColor">

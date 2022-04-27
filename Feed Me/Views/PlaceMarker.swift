@@ -1,15 +1,15 @@
-/// Copyright (c) 2020 Razeware LLC
-///
+/// Copyright (c) 2022 Razeware LLC
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,6 +17,10 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
+/// 
+/// This project and source code may use libraries or frameworks that are
+/// released under various Open-Source licenses. Use of those libraries and
+/// frameworks are governed by their own individual licenses.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -28,15 +32,31 @@
 
 import UIKit
 import GoogleMaps
-let googleApiKey = "AIzaSyAVeffK4eYcDufSJqXuSL04ihk2U4_PhgU"
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
-  
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
-    GMSServices.provideAPIKey(googleApiKey)
-    return true
+class PlaceMarker: GMSMarker {
+  // 1
+  let place: GooglePlace
+
+  // 2
+  init(place: GooglePlace, availableTypes: [String]) {
+    self.place = place
+    super.init()
+
+    position = place.coordinate
+    groundAnchor = CGPoint(x: 0.5, y: 1)
+    appearAnimation = .pop
+
+    var foundType = "restaurant"
+    let possibleTypes = availableTypes.count > 0 ?
+      availableTypes :
+      ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
+
+    for type in place.types {
+      if possibleTypes.contains(type) {
+        foundType = type
+        break
+      }
+    }
+    icon = UIImage(named: foundType+"_pin")
   }
 }

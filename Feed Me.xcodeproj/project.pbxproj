@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E9DAE561BDA80A4009DA461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DAE551BDA80A4009DA461 /* LaunchScreen.storyboard */; };
 		4EC7C1B73B274C4A8EB18F25 /* Pods_Feed_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE910FAB23FAE4AF3157F1A /* Pods_Feed_Me.framework */; };
+		92879A70281969F900FF4AB7 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92879A6F281969F900FF4AB7 /* PlaceMarker.swift */; };
 		B48F646E19B22EB200710BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48F646D19B22EB200710BEB /* AppDelegate.swift */; };
 		B48F647319B22EB200710BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B48F647119B22EB200710BEB /* Main.storyboard */; };
 		B48F647519B22EB200710BEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B48F647419B22EB200710BEB /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0E9DAE551BDA80A4009DA461 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B300A2CBBC37319B644629 /* Pods-Feed Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me.debug.xcconfig"; path = "Target Support Files/Pods-Feed Me/Pods-Feed Me.debug.xcconfig"; sourceTree = "<group>"; };
+		92879A6F281969F900FF4AB7 /* PlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		94C2110F578C474F766156BF /* Pods-Feed Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed Me.release.xcconfig"; path = "Target Support Files/Pods-Feed Me/Pods-Feed Me.release.xcconfig"; sourceTree = "<group>"; };
 		AAE910FAB23FAE4AF3157F1A /* Pods_Feed_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48F646819B22EB200710BEB /* Feed Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				B48F649519B22F9B00710BEB /* MarkerInfoView.swift */,
 				E17CD9BC23BD42C7002958C0 /* MarkerInfoView.xib */,
 				B48F649719B22F9B00710BEB /* UIView+Extensions.swift */,
+				92879A6F281969F900FF4AB7 /* PlaceMarker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				B48F649219B22F9400710BEB /* GoogleDataProvider.swift in Sources */,
 				E458F58323AECF5900662D15 /* Metadata.swift in Sources */,
 				B48F649319B22F9400710BEB /* GooglePlace.swift in Sources */,
+				92879A70281969F900FF4AB7 /* PlaceMarker.swift in Sources */,
 				B48F648E19B22F8700710BEB /* MapViewController.swift in Sources */,
 				B48F649A19B22F9B00710BEB /* UIView+Extensions.swift in Sources */,
 				B48F649C19B22FA500710BEB /* TypesTableViewController.swift in Sources */,
